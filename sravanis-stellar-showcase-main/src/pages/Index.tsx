@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { ToastContainer, toast } from 'react-toastify';
+import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 import {
   Mail,
   Phone,
@@ -18,10 +19,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
-
 const Index = () => {
-
-   const handleClick = () => {
+  const handleClick = () => {
     toast.success("Message sent successfully");
   };
 
@@ -142,6 +141,14 @@ const Index = () => {
             >
               View Projects
             </Button>
+            <Link to="https://docs.google.com/document/d/1SITopntCiSF7P1sKX02_K_1M2Ya64UCv/edit?usp=sharing&ouid=103457652401696060416&rtpof=true&sd=true">
+              <Button
+                variant="outline"
+                className="border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white px-8 py-3 rounded-full transition-all duration-300"
+              >
+                View Publication
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -220,7 +227,6 @@ const Index = () => {
                           key={skill}
                           variant="secondary"
                           className="bg-purple-500/20 text-purple-300 border-purple-500/30 hover:bg-purple-500/20 hover:text-purple-300 hover:border-purple-500/30"
-
                         >
                           {skill}
                         </Badge>
@@ -296,7 +302,7 @@ const Index = () => {
                       Masters in Machine Learning and Deep Learning (AI)
                     </p>
                     <Badge className="bg-purple-700 text-purple-300">
-                      Current
+                      2023-Present
                     </Badge>
                   </div>
                 </div>
@@ -368,11 +374,51 @@ const Index = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 px-6 bg-slate-800/30">
-        <div className="container mx-auto">
+      <section id="projects" className="py-20 px-6 bg-slate-800/30 ">
+        <div className="container mx-auto space-y-10">
           <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
             Featured Project
           </h2>
+
+          <div className="max-w-4xl mx-auto ">
+            <Card className="bg-gradient-to-br from-slate-800/80 to-purple-800/40 border-purple-500/30 overflow-hidden hover:border-purple-400/50 transition-all duration-300">
+              <CardContent className="p-8">
+                <div className="flex items-start space-x-4 mb-6">
+                  <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-full p-4">
+                    <Monitor className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-white mb-2">
+                      Deep Crack
+                    </h3>
+                    <p className="text-purple-300 font-medium mb-4">
+                      M Tech Final Year Project
+                    </p>
+                    <p className="text-white leading-relaxed mb-6">
+                      Developed "Deep Crack," a CNN-based image classification
+                      model using MobileNet and transfer learning for accurate
+                      crack detection in infrastructure. Implemented advanced
+                      image augmentation, custom top layers, and a robust
+                      evaluation framework to achieve high accuracy, precision,
+                      and recall.
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      <Badge className="bg-purple-700 text-purple-300">
+                        Deep Learning
+                      </Badge>
+                      <Badge className="bg-blue-700 text-blue-300">CNNs</Badge>
+                      <Badge className="bg-green-700 text-green-300">
+                        Python
+                      </Badge>
+                      <Badge className="bg-orange-700 text-orange-300">
+                        MobileNet
+                      </Badge>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
 
           <div className="max-w-4xl mx-auto">
             <Card className="bg-gradient-to-br from-slate-800/80 to-purple-800/40 border-purple-500/30 overflow-hidden hover:border-purple-400/50 transition-all duration-300">
@@ -508,12 +554,13 @@ const Index = () => {
                     required
                   />
                 </div>
-                <Button onClick={handleClick} className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white py-3 rounded-lg transition-all duration-300 transform hover:scale-105">
-                  
+                <Button
+                  onClick={handleClick}
+                  className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                >
                   Send Message
-                  
                 </Button>
-                <ToastContainer  />
+                <ToastContainer />
               </div>
             </div>
           </div>
